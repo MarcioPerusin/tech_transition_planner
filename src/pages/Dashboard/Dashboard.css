@@ -1,0 +1,28 @@
+/* src/pages/Dashboard/Dashboard.css */
+
+.dashboard-page {
+  width: 100%;
+  padding: 40px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.dashboard-page__header {
+  margin-bottom: 32px;
+}
+
+.dashboard-page__header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d2939;
+  margin-bottom: 8px;
+}
+
+.dashboard-page__header p {
+  color: #667085;
+  font-size: 1rem;
+}
+
+.dashboard-page__grid {
+  margin-top: 12px;
+}
