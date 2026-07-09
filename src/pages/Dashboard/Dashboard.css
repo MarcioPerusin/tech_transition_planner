@@ -5,10 +5,20 @@
   padding: 40px;
   background: #f5f7fb;
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .dashboard-page__header {
   margin-bottom: 32px;
+}
+
+.dashboard-page__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .dashboard-page__header h1 {
@@ -23,6 +33,19 @@
   font-size: 1rem;
 }
 
-.dashboard-page__grid {
+/* Nova seção para alinhar os MetricCards lado a lado */
+.dashboard-page__metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+/* .dashboard-page__grid {
   margin-top: 12px;
+} */
+
+.dashboard-page__cards {
+  margin-top: 12px;
+  margin-bottom: 40px;
 }

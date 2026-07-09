@@ -1,0 +1,62 @@
+/* src/components/dashboard/MetricCard.css */
+
+.metric-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.metric-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.metric-card__icon {
+  font-size: 1.4rem;
+}
+
+.metric-card__label {
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.metric-card__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.metric-card__value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.metric-card__variation {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.metric-card__variation--positive {
+  color: #16a34a;
+}
+
+.metric-card__variation--negative {
+  color: #dc2626;
+}
+
+.metric-card__variation--neutral {
+  color: #6b7280;
+}
