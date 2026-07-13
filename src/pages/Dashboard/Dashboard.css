@@ -49,3 +49,9 @@
   margin-top: 12px;
   margin-bottom: 40px;
 }
+
+.dashboard-page__progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}

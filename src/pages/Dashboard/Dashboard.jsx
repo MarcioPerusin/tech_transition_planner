@@ -11,6 +11,7 @@ import {
 import DashboardCard from "../../components/dashboard/DashboardCard";
 import DashboardGrid from "../../components/dashboard/DashboardGrid";
 import MetricCard from "../../components/dashboard/MetricCard";
+import ProgressCard from "../../components/dashboard/ProgressCard";
 
 import "./Dashboard.css";
 
@@ -66,7 +67,7 @@ function Dashboard() {
         />
       </DashboardGrid>
 
-      {/* Métricas */}
+      {/* MetricCards */}
       <section className="dashboard-page__metrics">
         <MetricCard
           icon={<FaRegClock />}
@@ -75,6 +76,7 @@ function Dashboard() {
           variation="+18h esta semana"
           variationType="positive"
         />
+
         <MetricCard
           icon={<FaRocket />}
           label="Career Readiness"
@@ -82,6 +84,7 @@ function Dashboard() {
           variation="+4%"
           variationType="positive"
         />
+
         <MetricCard
           icon={<FaLaptop />}
           label="Projetos"
@@ -89,7 +92,53 @@ function Dashboard() {
           variation="0"
           variationType="neutral"
         />
+
         <MetricCard icon="📄" label="Currículo" metric="100%" />
+      </section>
+
+      {/* Progress Indicators */}
+      <section className="dashboard-page__progress">
+        <ProgressCard
+          title="Empregabilidade"
+          percentage={82}
+          color="#2563eb"
+          description="Perfil pronto para iniciar candidaturas."
+        />
+
+        <ProgressCard
+          title="Perfil Técnico"
+          percentage={74}
+          color="#16a34a"
+          description="Boa evolução nas competências."
+        />
+
+        <ProgressCard
+          title="Portfólio"
+          percentage={90}
+          color="#9333ea"
+          description="Projetos quase completos."
+        />
+
+        <ProgressCard
+          title="Networking"
+          percentage={45}
+          color="#ea580c"
+          description="Continue ampliando sua rede."
+        />
+
+        <ProgressCard
+          title="GitHub"
+          percentage={76}
+          color="#0f766e"
+          description="Bom número de commits."
+        />
+
+        <ProgressCard
+          title="LinkedIn"
+          percentage={92}
+          color="#2563eb"
+          description="Perfil praticamente finalizado."
+        />
       </section>
     </main>
   );

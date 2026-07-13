@@ -1,0 +1,51 @@
+/* src/components/dashboard/ProgressCard.css */
+.progress-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: 0.3s;
+}
+
+.progress-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.progress-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-card__title {
+  font-weight: 600;
+  color: #344054;
+}
+
+.progress-card__percentage {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.progress-card__bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-card__fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.progress-card__description {
+  color: #667085;
+  font-size: 0.9rem;
+}
