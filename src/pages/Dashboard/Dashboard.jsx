@@ -1,5 +1,4 @@
 // src/pages/Dashboard/Dashboard.jsx
-
 import {
   FaBook,
   FaLaptop,
@@ -139,6 +138,13 @@ function Dashboard() {
           color="#2563eb"
           description="Perfil praticamente finalizado."
         />
+      </section>
+
+      {/* Charts */}
+      <section className="dashboard-page__charts">
+        <div className="dashboard-chart-placeholder">
+          📊 Em breve: gráficos de evolução.
+        </div>
       </section>
     </main>
   );

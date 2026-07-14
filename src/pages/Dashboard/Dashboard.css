@@ -1,5 +1,4 @@
 /* src/pages/Dashboard/Dashboard.css */
-
 .dashboard-page {
   width: 100%;
   padding: 40px;
@@ -41,12 +40,7 @@
   margin-bottom: 32px;
 }
 
-/* .dashboard-page__grid {
-  margin-top: 12px;
-} */
-
 .dashboard-page__cards {
-  margin-top: 12px;
   margin-bottom: 40px;
 }
 
@@ -54,4 +48,14 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+}
+
+.dashboard-chart-placeholder {
+  background: white;
+  border-radius: 16px;
+  padding: 60px;
+  text-align: center;
+  color: #98a2b3;
+  font-size: 1.1rem;
+  border: 2px dashed #d0d5dd;
 }
