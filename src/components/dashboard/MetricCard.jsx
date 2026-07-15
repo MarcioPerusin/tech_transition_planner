@@ -1,5 +1,4 @@
 // src/components/dashboard/MetricCard.jsx
-
 import "./MetricCard.css";
 
 function MetricCard({
@@ -7,18 +6,19 @@ function MetricCard({
   metric,
   icon,
   variation,
-  variationType = "positive",
+  variationType = "neutral",
+  className = "",
 }) {
   return (
-    <article className="metric-card">
-      <div className="metric-card__header">
+    <article className={`metric-card ${className}`}>
+      <header className="metric-card__header">
         {icon && <span className="metric-card__icon">{icon}</span>}
 
         <span className="metric-card__label">{label}</span>
-      </div>
+      </header>
 
       <div className="metric-card__body">
-        <h2 className="metric-card__value">{metric}</h2>
+        <strong className="metric-card__value">{metric}</strong>
 
         {variation && (
           <span

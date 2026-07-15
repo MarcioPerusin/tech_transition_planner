@@ -1,29 +1,39 @@
 // src/components/dashboard/ProgressCard.jsx
 import "./ProgressCard.css";
 
-function ProgressCard({ title, percentage, color = "#2563eb", description }) {
+function ProgressCard({
+  title,
+  percentage = 0,
+  color = "#2563eb",
+  description,
+  className = "",
+}) {
+  const progress = Math.min(Math.max(percentage, 0), 100);
+
   return (
-    <div className="progress-card">
-      <div className="progress-card__header">
+    <article className={`progress-card ${className}`}>
+      <header className="progress-card__header">
         <span className="progress-card__title">{title}</span>
 
         <span className="progress-card__percentage" style={{ color }}>
-          {percentage}%
+          {progress}%
         </span>
-      </div>
+      </header>
 
       <div className="progress-card__bar">
         <div
           className="progress-card__fill"
           style={{
-            width: `${percentage}%`,
+            width: `${progress}%`,
             backgroundColor: color,
           }}
         />
       </div>
 
-      <p className="progress-card__description">{description}</p>
-    </div>
+      {description && (
+        <p className="progress-card__description">{description}</p>
+      )}
+    </article>
   );
 }
 

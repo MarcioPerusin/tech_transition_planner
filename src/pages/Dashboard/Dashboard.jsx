@@ -5,142 +5,68 @@ import {
   FaRocket,
   FaBullseye,
   FaRegClock,
+  FaFileAlt,
 } from "react-icons/fa";
 
-import DashboardCard from "../../components/dashboard/DashboardCard";
 import DashboardGrid from "../../components/dashboard/DashboardGrid";
+import DashboardCard from "../../components/dashboard/DashboardCard";
 import MetricCard from "../../components/dashboard/MetricCard";
 import ProgressCard from "../../components/dashboard/ProgressCard";
 
+import {
+  dashboardCards,
+  metrics,
+  progressIndicators,
+} from "../../data/dashboardData";
+
 import "./Dashboard.css";
+
+// Association between the icon name and the React component
+const iconMap = {
+  book: <FaBook />,
+  laptop: <FaLaptop />,
+  rocket: <FaRocket />,
+  target: <FaBullseye />,
+  clock: <FaRegClock />,
+  file: <FaFileAlt />,
+};
 
 function Dashboard() {
   return (
     <main className="dashboard-page">
+      {/* Header */}
       <header className="dashboard-page__header">
         <div className="dashboard-page__title-group">
           <h1 className="dashboard-page__title">Dashboard</h1>
 
           <p className="dashboard-page__description">
-            Acompanhe sua evolução na jornada de transição de carreira.
+            Track your progress on your career transition journey.
           </p>
         </div>
       </header>
 
-      {/* DashboardCard */}
-      <DashboardGrid className="dashboard-page__cards">
-        <DashboardCard
-          title="Cursos"
-          icon={<FaBook />}
-          color="#2563eb"
-          value="4"
-          subtitle="2 concluídos"
-          footer="Ver Roadmap"
-        />
-
-        <DashboardCard
-          title="Projetos"
-          icon={<FaLaptop />}
-          color="#16a34a"
-          value="6"
-          subtitle="4 publicados"
-          footer="Ver Projetos"
-        />
-
-        <DashboardCard
-          title="Competências"
-          icon={<FaRocket />}
-          color="#ea580c"
-          value="18"
-          subtitle="12 dominadas"
-          footer="Ver Competências"
-        />
-
-        <DashboardCard
-          title="Metas"
-          icon={<FaBullseye />}
-          color="#9333ea"
-          value="9"
-          subtitle="6 concluídas"
-          footer="Ver Metas"
-        />
+      {/* Main cards */}
+      <DashboardGrid>
+        {dashboardCards.map((card) => (
+          <DashboardCard key={card.id} {...card} icon={iconMap[card.icon]} />
+        ))}
       </DashboardGrid>
 
-      {/* MetricCards */}
+      {/* Métricas */}
       <section className="dashboard-page__metrics">
-        <MetricCard
-          icon={<FaRegClock />}
-          label="Horas estudadas"
-          metric="256 h"
-          variation="+18h esta semana"
-          variationType="positive"
-        />
-
-        <MetricCard
-          icon={<FaRocket />}
-          label="Career Readiness"
-          metric="82%"
-          variation="+4%"
-          variationType="positive"
-        />
-
-        <MetricCard
-          icon={<FaLaptop />}
-          label="Projetos"
-          metric="8"
-          variation="0"
-          variationType="neutral"
-        />
-
-        <MetricCard icon="📄" label="Currículo" metric="100%" />
+        {metrics.map((metric) => (
+          <MetricCard key={metric.id} {...metric} icon={iconMap[metric.icon]} />
+        ))}
       </section>
 
-      {/* Progress Indicators */}
+      {/* Progress indicators */}
       <section className="dashboard-page__progress">
-        <ProgressCard
-          title="Empregabilidade"
-          percentage={82}
-          color="#2563eb"
-          description="Perfil pronto para iniciar candidaturas."
-        />
-
-        <ProgressCard
-          title="Perfil Técnico"
-          percentage={74}
-          color="#16a34a"
-          description="Boa evolução nas competências."
-        />
-
-        <ProgressCard
-          title="Portfólio"
-          percentage={90}
-          color="#9333ea"
-          description="Projetos quase completos."
-        />
-
-        <ProgressCard
-          title="Networking"
-          percentage={45}
-          color="#ea580c"
-          description="Continue ampliando sua rede."
-        />
-
-        <ProgressCard
-          title="GitHub"
-          percentage={76}
-          color="#0f766e"
-          description="Bom número de commits."
-        />
-
-        <ProgressCard
-          title="LinkedIn"
-          percentage={92}
-          color="#2563eb"
-          description="Perfil praticamente finalizado."
-        />
+        {progressIndicators.map((item) => (
+          <ProgressCard key={item.id} {...item} />
+        ))}
       </section>
 
-      {/* Charts */}
+      {/* Area reserved for charts */}
       <section className="dashboard-page__charts">
         <div className="dashboard-chart-placeholder">
           📊 Em breve: gráficos de evolução.

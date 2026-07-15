@@ -1,38 +1,38 @@
 // src/components/dashboard/DashboardCard.jsx
-
 import "./DashboardCard.css";
 
 function DashboardCard({
   title,
-  color,
   value,
   subtitle,
   icon,
-  children,
+  color = "#2563eb",
   footer,
+  children,
+  className = "",
 }) {
   return (
     <article
-      className="dashboard-card"
+      className={`dashboard-card ${className}`}
       style={{
-        borderTop: `5px solid ${color}`,
+        borderTopColor: color,
       }}
     >
-      <div className="dashboard-card__header">
-        <div className="dashboard-card__icon">{icon}</div>
+      <header className="dashboard-card__header">
+        {icon && <div className="dashboard-card__icon">{icon}</div>}
 
         <h3 className="dashboard-card__title">{title}</h3>
-      </div>
+      </header>
 
       <div className="dashboard-card__body">
-        <p className="dashboard-card__value">{value}</p>
+        <strong className="dashboard-card__value">{value}</strong>
 
         {subtitle && <p className="dashboard-card__subtitle">{subtitle}</p>}
 
         {children}
-
-        {footer && <div className="dashboard-card__footer">{footer}</div>}
       </div>
+
+      {footer && <footer className="dashboard-card__footer">{footer}</footer>}
     </article>
   );
 }
