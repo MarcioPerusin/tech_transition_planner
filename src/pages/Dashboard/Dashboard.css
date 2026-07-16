@@ -1,4 +1,8 @@
 /* src/pages/Dashboard/Dashboard.css */
+
+/* ==========================
+   Texts
+========================== */
 .dashboard-page {
   width: 100%;
   padding: 40px;
@@ -32,6 +36,18 @@
   font-size: 1rem;
 }
 
+/* ==========================
+   Cards
+========================== */
+
+.dashboard-page__cards {
+  margin-bottom: 40px;
+}
+
+/* ==========================
+   Metrics
+========================== */
+
 /* Nova seção para alinhar os MetricCards lado a lado */
 .dashboard-page__metrics {
   display: grid;
@@ -40,9 +56,9 @@
   margin-bottom: 32px;
 }
 
-.dashboard-page__cards {
-  margin-bottom: 40px;
-}
+/* ==========================
+   Progress
+========================== */
 
 .dashboard-page__progress {
   display: grid;
@@ -50,12 +66,34 @@
   gap: 24px;
 }
 
-.dashboard-chart-placeholder {
-  background: white;
-  border-radius: 16px;
-  padding: 60px;
-  text-align: center;
-  color: #98a2b3;
-  font-size: 1.1rem;
-  border: 2px dashed #d0d5dd;
+/* ==========================
+   Charts
+========================== */
+
+.dashboard-page__charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+}
+
+@media (max-width: 992px) {
+  .dashboard-page {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 20px;
+    gap: 32px;
+  }
+
+  .dashboard-page__title {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-page__charts {
+    grid-template-columns: 1fr;
+  }
 }

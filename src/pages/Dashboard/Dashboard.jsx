@@ -6,12 +6,15 @@ import {
   FaBullseye,
   FaRegClock,
   FaFileAlt,
+  FaChartLine,
 } from "react-icons/fa";
 
 import DashboardGrid from "../../components/dashboard/DashboardGrid";
 import DashboardCard from "../../components/dashboard/DashboardCard";
 import MetricCard from "../../components/dashboard/MetricCard";
 import ProgressCard from "../../components/dashboard/ProgressCard";
+import ChartCard from "../../components/dashboard/ChartCard";
+import ChartPlaceholder from "../../components/dashboard/ChartPlaceholder";
 
 import {
   dashboardCards,
@@ -19,9 +22,10 @@ import {
   progressIndicators,
 } from "../../data/dashboardData";
 
+import { chartsData } from "../../data/chartsData";
+
 import "./Dashboard.css";
 
-// Association between the icon name and the React component
 const iconMap = {
   book: <FaBook />,
   laptop: <FaLaptop />,
@@ -45,32 +49,37 @@ function Dashboard() {
         </div>
       </header>
 
-      {/* Main cards */}
+      {/* Main Dashboard Cards */}
       <DashboardGrid>
         {dashboardCards.map((card) => (
           <DashboardCard key={card.id} {...card} icon={iconMap[card.icon]} />
         ))}
       </DashboardGrid>
 
-      {/* Métricas */}
+      {/* Metric Cards */}
       <section className="dashboard-page__metrics">
         {metrics.map((metric) => (
           <MetricCard key={metric.id} {...metric} icon={iconMap[metric.icon]} />
         ))}
       </section>
 
-      {/* Progress indicators */}
+      {/* Progress Indicators */}
       <section className="dashboard-page__progress">
         {progressIndicators.map((item) => (
           <ProgressCard key={item.id} {...item} />
         ))}
       </section>
 
-      {/* Area reserved for charts */}
+      {/* Charts */}
       <section className="dashboard-page__charts">
-        <div className="dashboard-chart-placeholder">
-          📊 Em breve: gráficos de evolução.
-        </div>
+        {chartsData.map((chart) => (
+          <ChartCard key={chart.id} title={chart.title} icon={<FaChartLine />}>
+            <ChartPlaceholder
+              title={chart.title}
+              description={chart.description}
+            />
+          </ChartCard>
+        ))}
       </section>
     </main>
   );
