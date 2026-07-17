@@ -1,7 +1,6 @@
 // src/layout/MainLayout.jsx
-
-import Sidebar from "../components/common/Sidebar";
-import Header from "../components/common/Header";
+import Sidebar from "../../src/components/common/Sidebar/Sidebar";
+import Header from "../../src/components/common/Header/Header";
 
 function MainLayout({ children }) {
   return (

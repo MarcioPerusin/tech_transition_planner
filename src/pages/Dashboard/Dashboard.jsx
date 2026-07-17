@@ -9,12 +9,12 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 
-import DashboardGrid from "../../components/dashboard/DashboardGrid";
-import DashboardCard from "../../components/dashboard/DashboardCard";
-import MetricCard from "../../components/dashboard/MetricCard";
-import ProgressCard from "../../components/dashboard/ProgressCard";
-import ChartCard from "../../components/dashboard/ChartCard";
-import ChartPlaceholder from "../../components/dashboard/ChartPlaceholder";
+import DashboardGrid from "../../../src/components/dashboard/DashboardGrid/DashboardGrid";
+import DashboardCard from "../../../src/components/dashboard/DashboardCard/DashboardCard";
+import MetricCard from "../../../src/components/dashboard/MetricCard/MetricCard";
+import ProgressCard from "../../../src/components/dashboard/ProgressCard/ProgressCard";
+import ChartCard from "../../../src/components/dashboard/ChartCard/ChartCard";
+import ChartPlaceholder from "../../../src/components/dashboard/ChartPlaceholder/ChartPlaceholder";
 
 import {
   dashboardCards,
