@@ -1,11 +1,13 @@
 // src/components/roadmap/RoadmapCard/RoadmapCard.jsx
-import StatusBadge from "../../common/StatusBadge/StatusBadge";
 import {
   FaBookOpen,
   FaCalendarAlt,
-  FaClock,
   FaChevronRight,
+  FaClock,
+  FaTrashAlt,
 } from "react-icons/fa";
+
+import StatusBadge from "../../common/StatusBadge/StatusBadge";
 
 import "./RoadmapCard.css";
 
@@ -14,10 +16,12 @@ function RoadmapCard({
   institution,
   hours,
   progress = 0,
-  status = "Não iniciado",
+  status = "pending",
   dueDate,
   color = "#2563eb",
   onViewDetails,
+  onEdit,
+  onDelete,
 }) {
   const safeProgress = Math.min(Math.max(Number(progress) || 0, 0), 100);
 
@@ -40,13 +44,17 @@ function RoadmapCard({
       <div className="roadmap-card__details">
         <div className="roadmap-card__detail">
           <FaClock aria-hidden="true" />
-          <span>{hours} hours</span>
+
+          <span>
+            {hours} {Number(hours) === 1 ? "hour" : "hours"}
+          </span>
         </div>
 
         {dueDate && (
           <div className="roadmap-card__detail">
             <FaCalendarAlt aria-hidden="true" />
-            <span>Prevision: {dueDate}</span>
+
+            <span>Due date: {dueDate}</span>
           </div>
         )}
       </div>
@@ -60,7 +68,7 @@ function RoadmapCard({
         <div
           className="roadmap-card__progress-track"
           role="progressbar"
-          aria-label={`Progresso do curso ${title}`}
+          aria-label={`Progress for ${title}`}
           aria-valuemin="0"
           aria-valuemax="100"
           aria-valuenow={safeProgress}
@@ -72,13 +80,35 @@ function RoadmapCard({
         </div>
       </div>
 
+      <div className="roadmap-card__actions">
+        <button
+          className="roadmap-card__edit-button"
+          type="button"
+          onClick={onEdit}
+          aria-label={`Edit ${title}`}
+        >
+          Edit
+        </button>
+
+        <button
+          className="roadmap-card__delete-button"
+          type="button"
+          onClick={onDelete}
+          aria-label={`Delete ${title}`}
+        >
+          <FaTrashAlt aria-hidden="true" />
+          Delete
+        </button>
+      </div>
+
       <footer className="roadmap-card__footer">
         <button
           className="roadmap-card__button"
           type="button"
           onClick={onViewDetails}
+          disabled={!onViewDetails}
         >
-          Ver detalhes
+          View details
           <FaChevronRight aria-hidden="true" />
         </button>
       </footer>

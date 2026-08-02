@@ -41,12 +41,12 @@ function TimelineItem({ item, isLast }) {
         {(date || hours !== undefined) && (
           <div className="timeline__metadata">
             {date && (
-              <span className="timeline__metadata-item">Previsão: {date}</span>
+              <span className="timeline__metadata-item">Prevision: {date}</span>
             )}
 
             {hours !== undefined && hours !== null && (
               <span className="timeline__metadata-item">
-                {hours} {Number(hours) === 1 ? "hora" : "horas"}
+                {hours} {Number(hours) === 1 ? "hour" : "hours"}
               </span>
             )}
           </div>
@@ -54,7 +54,7 @@ function TimelineItem({ item, isLast }) {
 
         <div className="timeline__progress">
           <div className="timeline__progress-header">
-            <span>Progresso</span>
+            <span>Progress</span>
             <strong>{safeProgress}%</strong>
           </div>
 
@@ -79,8 +79,8 @@ function TimelineItem({ item, isLast }) {
 
 function Timeline({
   items = [],
-  title = "Etapas do curso",
-  emptyMessage = "Nenhuma etapa cadastrada.",
+  title = "Course stages",
+  emptyMessage = "No stage registered.",
 }) {
   if (!Array.isArray(items) || items.length === 0) {
     return (
