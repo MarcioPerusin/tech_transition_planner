@@ -4,7 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/tech_transition_planner/",
   plugins: [
     react(),
-    tailwindcss(),],
-})
+    tailwindcss(),
+  ],
+});
