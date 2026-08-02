@@ -12,12 +12,34 @@ import { loadCourses, saveCourses } from "../../utils/storage/courseStorage";
 
 import "./Roadmap.css";
 
+const roadmapFilters = {
+  all: "all",
+  inProgress: "in-progress",
+  completed: "completed",
+  overdue: "overdue",
+};
+
+function isCourseOverdue(course) {
+  if (!course.dueDate || course.status === "completed") {
+    return false;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const dueDate = new Date(`${course.dueDate}T00:00:00`);
+
+  return dueDate < today;
+}
+
 function Roadmap() {
   const [courses, setCourses] = useState(() => {
     const storedCourses = loadCourses();
 
     return storedCourses ?? roadmapData;
   });
+
+  const [activeFilter, setActiveFilter] = useState(roadmapFilters.all);
 
   const [editingCourse, setEditingCourse] = useState(null);
   const [courseToDelete, setCourseToDelete] = useState(null);
@@ -37,6 +59,22 @@ function Roadmap() {
 
     setCourses((currentCourses) => [...currentCourses, newCourse]);
   }
+
+  const filteredCourses = courses.filter((course) => {
+    if (activeFilter === roadmapFilters.completed) {
+      return course.status === "completed";
+    }
+
+    if (activeFilter === roadmapFilters.inProgress) {
+      return course.status === "in-progress";
+    }
+
+    if (activeFilter === roadmapFilters.overdue) {
+      return isCourseOverdue(course);
+    }
+
+    return true;
+  });
 
   function handleStartEdit(course) {
     setEditingCourse(course);
@@ -214,8 +252,62 @@ function Roadmap() {
           </div>
         </div>
 
+        <div className="roadmap__filters">
+          <button
+            className={`roadmap__filter-button ${
+              activeFilter === roadmapFilters.all
+                ? "roadmap__filter-button_active"
+                : ""
+            }`}
+            type="button"
+            onClick={() => setActiveFilter(roadmapFilters.all)}
+            aria-pressed={activeFilter === roadmapFilters.all}
+          >
+            All
+          </button>
+
+          <button
+            className={`roadmap__filter-button ${
+              activeFilter === roadmapFilters.completed
+                ? "roadmap__filter-button_active"
+                : ""
+            }`}
+            type="button"
+            onClick={() => setActiveFilter(roadmapFilters.completed)}
+            aria-pressed={activeFilter === roadmapFilters.completed}
+          >
+            Completed
+          </button>
+
+          <button
+            className={`roadmap__filter-button ${
+              activeFilter === roadmapFilters.inProgress
+                ? "roadmap__filter-button_active"
+                : ""
+            }`}
+            type="button"
+            onClick={() => setActiveFilter(roadmapFilters.inProgress)}
+            aria-pressed={activeFilter === roadmapFilters.inProgress}
+          >
+            In progress
+          </button>
+
+          <button
+            className={`roadmap__filter-button ${
+              activeFilter === roadmapFilters.overdue
+                ? "roadmap__filter-button_active"
+                : ""
+            }`}
+            type="button"
+            onClick={() => setActiveFilter(roadmapFilters.overdue)}
+            aria-pressed={activeFilter === roadmapFilters.overdue}
+          >
+            Late
+          </button>
+        </div>
+
         <div className="roadmap-page__cards">
-          {courses.map((course) => (
+          {filteredCourses.map((course) => (
             <RoadmapCard
               key={course.id}
               {...course}
