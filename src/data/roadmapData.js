@@ -1,15 +1,14 @@
 // src/data/roadmapData.js
 const roadmapData = [
   {
-    id: 1,
+    id: "300ffc77-32ac-434d-be7a-9aa6ab5f7e5c",
     title: "Web Development Full Stack",
     institution: "TripleTen",
     hours: 480,
     progress: 72,
-    status: "In progress",
-    dueDate: "30/09/2026",
+    status: "in-progress",
+    dueDate: "2026-09-30",
     color: "#2563eb",
-
     timeline: [
       {
         id: 1,
@@ -63,15 +62,41 @@ const roadmapData = [
       },
     ],
   },
+
   {
-    id: 2,
+    id: "data-science-academy-demo",
     title: "Data Scientist Training Program",
     institution: "Data Science Academy",
     hours: 350,
     progress: 100,
-    status: "Completed",
-    dueDate: "15/11/2021",
+    status: "completed",
+    dueDate: "2026-05-06",
     color: "#16a34a",
+    timeline: [],
+  },
+
+  {
+    id: "scrum-foundation-demo",
+    title: "Scrum Foundation - EXIGIN",
+    institution: "Training",
+    hours: 50,
+    progress: 100,
+    status: "completed",
+    dueDate: "2019-05-10",
+    color: "#27eb24",
+    timeline: [],
+  },
+
+  {
+    id: "career-preparation-demo",
+    title: "Career Preparation Program",
+    institution: "Career Development",
+    hours: 45,
+    progress: 60,
+    status: "in-progress",
+    dueDate: "2026-08-07",
+    color: "#ebac24",
+    timeline: [],
   },
 ];
 
