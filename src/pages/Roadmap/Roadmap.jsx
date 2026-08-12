@@ -179,7 +179,7 @@ function Roadmap() {
           onClick={handleScrollToAddForm}
         >
           <FaPlus aria-hidden="true" />
-          New course
+          New Course
         </button>
       </header>
 
@@ -218,7 +218,7 @@ function Roadmap() {
 
       <section className="roadmap-page__form-section" ref={addFormRef}>
         <div>
-          <h2 className="roadmap-page__section-title">Add new course</h2>
+          <h2 className="roadmap-page__section-title">Create Course</h2>
 
           <p className="roadmap-page__section-description">
             Fill in the course's key details.

@@ -49,3 +49,10 @@
   color: #667085;
   font-size: 0.9rem;
 }
+
+@media (max-width: 480px) {
+  .progress-card__header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

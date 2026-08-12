@@ -4,7 +4,7 @@ import Logo from "../Logo/Logo";
 
 function Sidebar() {
   return (
-    <aside className="w-64 h-screen bg-slate-900 text-white">
+    <aside className="hidden md:block md:w-48 lg:w-64 h-screen bg-slate-900 text-white">
       <div className="p-6">
         <Logo />
       </div>
@@ -18,20 +18,20 @@ function Sidebar() {
           Roadmap
         </NavLink>
 
-        <NavLink to="/projetos" className="px-6 py-3 hover:bg-slate-700">
-          Projetos
+        <NavLink to="/projects" className="px-6 py-3 hover:bg-slate-700">
+          Projects
         </NavLink>
 
-        <NavLink to="/competencias" className="px-6 py-3 hover:bg-slate-700">
-          Competências
+        <NavLink to="/skills" className="px-6 py-3 hover:bg-slate-700">
+          Skills
         </NavLink>
 
-        <NavLink to="/metas" className="px-6 py-3 hover:bg-slate-700">
-          Metas
+        <NavLink to="/goals" className="px-6 py-3 hover:bg-slate-700">
+          Goals
         </NavLink>
 
-        <NavLink to="/funil" className="px-6 py-3 hover:bg-slate-700">
-          Funil
+        <NavLink to="/pipeline" className="px-6 py-3 hover:bg-slate-700">
+          Pipeline
         </NavLink>
       </nav>
     </aside>

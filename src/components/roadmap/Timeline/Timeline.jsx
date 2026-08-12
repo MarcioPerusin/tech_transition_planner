@@ -98,7 +98,7 @@ function Timeline({
         </h3>
 
         <span className="timeline__count">
-          {items.length} {items.length === 1 ? "etapa" : "etapas"}
+          {items.length} {items.length === 1 ? "step" : "steps"}
         </span>
       </div>
 

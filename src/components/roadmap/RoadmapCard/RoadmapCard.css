@@ -5,6 +5,7 @@
   gap: 20px;
   width: 100%;
   padding: 24px;
+  margin-bottom: 32px;
   border: 1px solid #eaecf0;
   border-top: 5px solid var(--roadmap-card-color);
   border-radius: 18px;

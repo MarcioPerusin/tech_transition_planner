@@ -1,5 +1,4 @@
 /* src/components/dashboard/MetricCard.css */
-
 .metric-card {
   background: #ffffff;
   border-radius: 16px;
@@ -59,4 +58,11 @@
 
 .metric-card__variation--neutral {
   color: #6b7280;
+}
+
+@media (max-width: 480px) {
+  .metric-card__body {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }

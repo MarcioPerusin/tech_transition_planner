@@ -43,7 +43,7 @@ function CourseForm({
   onSubmit,
   onCancel,
   initialData,
-  submitLabel = "Adicionar curso",
+  submitLabel = "Save",
   resetAfterSubmit = true,
 }) {
   const [formData, setFormData] = useState(() => createFormData(initialData));
@@ -155,7 +155,7 @@ function CourseForm({
           value={formData.title}
           onChange={handleChange}
           onBlur={handleTitleBlur}
-          placeholder="Ex.: Web Development Full Stack"
+          placeholder="E.g.: Web Development Full Stack"
           required
           aria-invalid={Boolean(errors.title)}
           aria-describedby={errors.title ? `${titleId}-error` : undefined}
@@ -187,7 +187,7 @@ function CourseForm({
           value={formData.institution}
           onChange={handleChange}
           onBlur={handleInstitutionBlur}
-          placeholder="Ex.: TripleTen"
+          placeholder="e.g. TripleTen"
           required
           aria-invalid={Boolean(errors.institution)}
           aria-describedby={
@@ -288,11 +288,11 @@ function CourseForm({
             value={formData.status}
             onChange={handleChange}
           >
-            <option value="pending">Não iniciado</option>
-            <option value="in-progress">Em andamento</option>
-            <option value="completed">Concluído</option>
-            <option value="delayed">Atrasado</option>
-            <option value="paused">Pausado</option>
+            <option value="pending">Not started</option>
+            <option value="in-progress">In progress</option>
+            <option value="completed">Completed</option>
+            <option value="delayed">Delayed</option>
+            <option value="paused">Paused</option>
           </select>
         </div>
 
@@ -353,7 +353,7 @@ function CourseForm({
             type="button"
             onClick={onCancel}
           >
-            Cancelar
+            Cancel
           </button>
         )}
 
