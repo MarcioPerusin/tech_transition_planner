@@ -103,6 +103,13 @@ function CourseForm({
     }
   }
 
+  function handleCancel() {
+    setFormData(createFormData(initialData));
+    setErrors(defaultErrors);
+
+    onCancel?.();
+  }
+
   function handleTitleBlur() {
     setErrors((currentErrors) => ({
       ...currentErrors,
@@ -347,15 +354,13 @@ function CourseForm({
       </div>
 
       <div className="course-form__actions">
-        {onCancel && (
-          <button
-            className="course-form__cancel"
-            type="button"
-            onClick={onCancel}
-          >
-            Cancel
-          </button>
-        )}
+        <button
+          className="course-form__cancel"
+          type="button"
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
 
         <button className="course-form__submit" type="submit">
           {submitLabel}

@@ -225,12 +225,7 @@ function Roadmap() {
           </p>
         </div>
 
-        <CourseForm
-          key={editingCourse ? `edit-course-${editingCourse.id}` : "new-course"}
-          initialData={editingCourse}
-          onSubmit={handleAddCourse}
-          onCancel={handleCancelEdit}
-        />
+        <CourseForm onSubmit={handleAddCourse} />
       </section>
 
       <section
@@ -331,7 +326,7 @@ function Roadmap() {
               initialData={editingCourse}
               onSubmit={handleUpdateCourse}
               onCancel={handleCancelEdit}
-              submitLabel="Save changes"
+              submitLabel="Save"
               resetAfterSubmit={false}
             />
           </section>
