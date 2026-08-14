@@ -3,8 +3,8 @@ import "./ChartPlaceholder.css";
 
 function ChartPlaceholder({
   icon = "📊",
-  title = "Gráfico em desenvolvimento",
-  description = "Os dados serão exibidos automaticamente quando houver informações disponíveis.",
+  title = "Chart under development",
+  description = "The data will be displayed automatically when information becomes available.",
 }) {
   return (
     <div className="chart-placeholder">
